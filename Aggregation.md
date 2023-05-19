@@ -16,7 +16,7 @@ The **CITY** table is described as follows:
 
 ### Solution: 
 
-```mysql
+```sql
 SELECT SUM(Population)
 FROM CITY
 WHERE COUNTRYCODE = "JPN";
@@ -43,7 +43,7 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 ### Solution: 
 
-```mysql
+```sql
 SELECT TRUNCATE(SUM(LAT_N),4)
 FROM STATION
 WHERE LAT_N > 38.7880 AND LAT_N < 137.2345;
@@ -69,8 +69,31 @@ The **CITY** table is described as follows:
 
 ### Solution:
 
-```mysql
+```sql
 SELECT COUNT(*) AS DISTRICT
 FROM CITY
 WHERE Population > 100000;
+```
+---------------------------------------------
+
+# [Revising Aggregations - Averages](https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem?isFullScreen=false)
+
+Query the average population of all cities in **CITY** where District is **California**.
+
+**Input Format**
+
+| **Field** | **Type** |
+|-----:|---------------|
+|ID|Number|
+|NAME|VARCHAR2(17)|
+|COUNTRYCODE|VARCHAR2(3)|
+|DISTRICT|VARCHAR2(20)|
+|POPULATION|NUMBER|
+
+### Solution:
+
+```sql
+SELECT AVG(POPULATION) AS AVERAGE_CALIFORNIA
+FROM CITY
+WHERE DISTRICT = 'California';
 ```
