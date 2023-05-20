@@ -190,3 +190,52 @@ where ***lat*** is the sum of all values in LAT_N and ***lon*** is the sum of al
 SELECT ROUND(SUM(LAT_N),2), ROUND(SUM(LONG_W),2)
 FROM STATION;
 ```
+--------------------------------------------------
+
+# [Average Population](https://www.hackerrank.com/challenges/average-population/problem?isFullScreen=false)
+
+Query the average population for all cities in **CITY**, rounded down to the nearest integer.
+
+**Input Format**
+
+The **CITY** table is described as follows:
+
+| **Field** | **Type** |
+|-----:|---------------|
+|ID|Number|
+|NAME|VARCHAR2(17)|
+|COUNTRYCODE|VARCHAR2(3)|
+|DISTRICT|VARCHAR2(20)|
+|POPULATION|NUMBER|
+
+### Solution: 
+
+```sql 
+SELECT ROUND(AVG(POPULATION)) 
+FROM CITY;
+```
+
+--------------------------------------------------
+# [Population Density Difference](https://www.hackerrank.com/challenges/population-density-difference/problem?isFullScreen=false&h_r=next-challenge&h_v=zen)
+
+Query the difference between the maximum and minimum populations in **CITY**.
+
+**Input Format**
+
+The **CITY** table is described as follows:
+
+| **Field** | **Type** |
+|-----:|---------------|
+|ID|Number|
+|NAME|VARCHAR2(17)|
+|COUNTRYCODE|VARCHAR2(3)|
+|DISTRICT|VARCHAR2(20)|
+|POPULATION|NUMBER|
+
+### Solution:
+
+```sql 
+SELECT MAX(POPULATION) - MIN(POPULATION)
+FROM CITY;
+```
+--------------------------------------------------
