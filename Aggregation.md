@@ -170,7 +170,7 @@ The **STATION** table is described as follows:
 
 | **Field** | **Type** |
 |-----:|---------------|
-|ID|Number|
+|ID|NUMBER|
 |CITY|VARCHAR2(17)|
 |STATE|VARCHAR2(3)|
 |LAT_N|NUMBER|
@@ -202,7 +202,7 @@ The **CITY** table is described as follows:
 
 | **Field** | **Type** |
 |-----:|---------------|
-|ID|Number|
+|ID|NUMBER|
 |NAME|VARCHAR2(17)|
 |COUNTRYCODE|VARCHAR2(3)|
 |DISTRICT|VARCHAR2(20)|
@@ -226,7 +226,7 @@ The **CITY** table is described as follows:
 
 | **Field** | **Type** |
 |-----:|---------------|
-|ID|Number|
+|ID|NUMBER|
 |NAME|VARCHAR2(17)|
 |COUNTRYCODE|VARCHAR2(3)|
 |DISTRICT|VARCHAR2(20)|
@@ -239,3 +239,29 @@ SELECT MAX(POPULATION) - MIN(POPULATION)
 FROM CITY;
 ```
 --------------------------------------------------
+# [Weather Observation Station 15](https://www.hackerrank.com/challenges/weather-observation-station-15/problem?isFullScreen=false&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen)
+
+Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in **STATION** that is less than 137.2345. Round your answer to 4 decimal places.
+
+Input Format
+
+The STATION table is described as follows:
+
+| **Field** | **Type** |
+|-----:|---------------|
+|ID|NUMBER|
+|CITY|VARCHAR2(21)|
+|STATE|VARCHAR2(2)|
+|LAT_N|NUMBER|
+|LONG_W|NUMBER|
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+### Solution:
+
+```sql 
+SELECT ROUND(LONG_W,4)
+FROM STATION
+WHERE LAT_N < 137.2345
+ORDER BY LAT_N DESC LIMIT 1;
+```
