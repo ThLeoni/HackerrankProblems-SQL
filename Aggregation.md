@@ -97,3 +97,60 @@ SELECT AVG(POPULATION) AS AVERAGE_CALIFORNIA
 FROM CITY
 WHERE DISTRICT = 'California';
 ```
+-------------------------------------------
+# [The Blunder](https://www.hackerrank.com/challenges/the-blunder/problem?isFullScreen=false)
+
+Samantha was tasked with calculating the average monthly salaries for all employees in the **EMPLOYEES** table, but did not realize her keyboard's **0** key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+
+Write a query calculating the amount of error (i.e.:  ***actual - miscalculated*** average monthly salaries), and round it up to the next integer.
+
+**Input Format**
+
+The **EMPLOYEES** table is described as follows:
+
+| **Field** | **Type** |
+|-----:|---------------|
+|ID|INTEGER|
+|NAME|STRING|
+|SALARY|INTEGER|
+
+**Note**: Salary is per month.
+
+**Constraints**
+$`1000 < Salary < 10^5.`$
+
+### Solution:
+
+```sql
+SELECT CEIL(AVG(salary) - AVG(REPLACE(Salary, '0', '')))
+FROM EMPLOYEES;
+```
+
+--------------------------------------------------
+
+# [Top Earners](https://www.hackerrank.com/challenges/earnings-of-employees/problem?isFullScreen=false)
+
+We define an employee's total earnings to be their monthly ***salary x months*** worked, and the maximum total earnings to be the maximum total earnings for any employee in the **Employee** table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as  space-separated integers.
+
+**Input Format**
+
+The **Employee** table containing employee data for a company is described as follows:
+
+| **Column** | **Type** |
+|-----:|---------------|
+|EMPLOYEE_ID|INTEGER|
+|NAME|STRING|
+|MONTHS|INTEGER|
+|SALARY|INTEGER|
+
+where employee_id is an employee's ID number, name is their name, months is the total number of months they've been working for the company, and salary is the their monthly salary.
+
+### Solution: 
+
+```sql 
+SELECT months*salary, count(*)
+FROM employee
+GROUP BY months*salary
+ORDER BY months*salary DESC
+limit 1;
+```
