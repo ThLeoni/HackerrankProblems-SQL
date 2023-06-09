@@ -1,1 +1,0 @@
-# HackerrankProblems-SQL
